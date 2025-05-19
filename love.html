@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Monthsary BEBE KOOO</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#FF9AAA", secondary: "#B5EAEA" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+    <style>
+      :where([class^="ri-"])::before {
+        content: "\f3c2";
+      }
+
+      @keyframes float {
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-10px) rotate(5deg); }
+        100% { transform: translateY(0px) rotate(0deg); }
+      }
+
+      @keyframes sway {
+        0% { transform: rotate(-5deg); }
+        50% { transform: rotate(5deg); }
+        100% { transform: rotate(-5deg); }
+      }
+
+      @keyframes bloom {
+        0% { transform: scale(0.8); opacity: 0.7; }
+        50% { transform: scale(1.05); opacity: 1; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+
+      @keyframes float-hearts {
+        0% { transform: translateY(0) translateX(0); opacity: 1; }
+        100% { transform: translateY(-100px) translateX(10px); opacity: 0; }
+      }
+
+      @keyframes sparkle {
+        0% { transform: scale(0); opacity: 0; }
+        50% { transform: scale(1.2); opacity: 1; }
+        100% { transform: scale(0); opacity: 0; }
+      }
+
+      .flower { animation: sway 4s ease-in-out infinite; }
+      .flower-center { animation: bloom 3s ease-in-out infinite; }
+      .letter-content { font-family: 'Dancing Script', cursive; }
+
+      .envelope {
+        transition: transform 0.8s ease;
+      }
+
+      .envelope.open {
+        transform: scale(1.05);
+      }
+
+      .letter {
+        transition: all 0.8s ease;
+        max-height: 0;
+        overflow: hidden;
+      }
+
+      .letter.open {
+        max-height: 1000px;
+      }
+
+      .floating-heart {
+        position: absolute;
+        animation: float-hearts 4s ease-in-out infinite;
+      }
+
+      .sparkle {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 50%;
+        pointer-events: none;
+        animation: sparkle 0.8s linear forwards;
+      }
+    </style>
+  </head>
+ <body
+  class="bg-gradient-to-b from-pink-50 to-purple-50 min-h-screen flex flex-col items-center"
+  style="font-family: 'Quicksand', sans-serif;"
+>
+<video autoplay muted loop playsinline id="bg-video" class="fixed top-0 left-0 w-full h-full object-cover -z-10">
+  <source src="vid/ily.mp4" type="video/mp4" />
+</video>
+
+<audio id="bg-music" autoplay playsinline>
+  <source src="music/love.mp3" type="audio/mpeg">
+</audio>
+
+
+    <div class="w-[375px] min-h-[762px] relative overflow-hidden flex flex-col items-center pt-12 pb-20">
+      <!-- Animated Flower -->
+      <div class="flower w-32 h-32 flex items-center justify-center mb-4">
+        <div class="relative">
+          <div class="absolute top-4 left-4 w-24 h-24">
+            <div class="absolute w-10 h-10 bg-pink-200 rounded-full" style="top: 0; left: 7px; transform: rotate(0deg);"></div>
+            <div class="absolute w-10 h-10 bg-pink-200 rounded-full" style="top: 7px; right: 0; transform: rotate(72deg);"></div>
+            <div class="absolute w-10 h-10 bg-pink-200 rounded-full" style="bottom: 7px; right: 0; transform: rotate(144deg);"></div>
+            <div class="absolute w-10 h-10 bg-pink-200 rounded-full" style="bottom: 0; left: 7px; transform: rotate(216deg);"></div>
+            <div class="absolute w-10 h-10 bg-pink-200 rounded-full" style="top: 7px; left: 0; transform: rotate(288deg);"></div>
+          </div>
+          <div class="flower-center absolute top-10 left-10 w-12 h-12 bg-primary rounded-full"></div>
+        </div>
+      </div>
+
+      <!-- Header Text -->
+      <h1 class="text-3xl font-['Pacifico'] text-primary mb-2">Happy 20th Monthsary</h1>
+      <p class="text-sm text-primary-500 mb-8">May 20, 2025</p>
+
+      <!-- Floating Hearts -->
+      <div id="hearts-container" class="absolute top-0 left-0 w-full h-full pointer-events-none"></div>
+
+      <!-- Envelope -->
+      <div id="envelope" class="envelope w-[330px] bg-white rounded-xl shadow-lg p-4 mb-6 cursor-pointer">
+        <div class="flex items-center justify-between mb-2">
+          <div class="w-8 h-8 flex items-center justify-center rounded-full bg-primary">
+            <i class="ri-heart-fill text-white"></i>
+          </div>
+        <!-- Your button -->
+<div id="play-button" class="cursor-pointer">
+  <div class="text-sm text-gray-400">Click Me!!</div>
+  <div class="w-8 h-8 flex items-center justify-center rounded-full bg-primary">
+    <i class="ri-heart-fill text-white"></i>
+  </div>
+</div>
+
+<!-- Audio element (make sure the file is in /music/love.mp3 relative to your HTML file) -->
+<audio id="bg-music" preload="auto">
+  <source src="music/love.mp3" type="audio/mpeg" />
+</audio>
+
+
+        <div class="border-t border-dashed border-gray-200 py-2 flex justify-center">
+          <!-- Local Image -->
+          <img
+            src="img/1.jpg"
+            alt="Couple Photo"
+            class="w-[280px] h-[180px] object-cover rounded-lg shadow-sm"
+          />
+        </div>
+      </div>
+
+      <!-- Letter -->
+      <div id="letter" class="letter w-[330px] bg-[#FFF8F8] rounded-xl shadow-lg p-6 mb-6">
+        <div class="letter-content text-lg text-gray-700 leading-relaxed">
+                <p class="mb-4"></p>
+                   <p class="mb-4"></p>
+                   <p class="mb-4"></p>
+                <p class="mb-4"></p>
+                           <p class="mb-4"></p>
+                                      <p class="mb-4">.....</p>
+          <p class="mb-4">My dearest love, Anna.</p>
+  <p class="mb-4">
+  It’s been twenty months since you came into my life, and every day I still find myself longing for you for your smile, your touch, the way you make my world feel whole.
+</p>
+<p class="mb-4">
+  Nights feel colder without your warmth, and even the silence between us is filled with the echo of your laughter. Mahal, I want you to know that no matter where life takes us, I’ll always choose you — over and over, every day and every night.
+</p>
+<p class="mb-4">
+  I’m here, still yearning, still hoping, still loving you with everything I have. Happy 20th monthsary, my heart’s quiet desire, my forever.
+</p>
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const envelope = document.getElementById('envelope');
+      const letter = document.getElementById('letter');
+
+      envelope.addEventListener('click', () => {
+        envelope.classList.toggle('open');
+        letter.classList.toggle('open');
+      });
+    </script>
+    <script>
+  document.getElementById("play-button").addEventListener("click", function () {
+    const audio = document.getElementById("bg-music");
+    audio.play().catch(err => {
+      console.log("Audio play failed:", err);
+    });
+  });
+</script>
+  </body>
+</html>
